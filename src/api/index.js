@@ -14,7 +14,7 @@ function fetchAllApi() {
 // 영화의 상세 정보 호출
 function fetchDetailInfo(_id) {
       
-  console.log('gogogo : ', _id)
+  // console.log('gogogo : ', _id)
   return axios.get(`${config.baseUrl}/films/${_id}`)
 }
 
