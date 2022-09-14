@@ -1,27 +1,29 @@
 <template>
-  <div class="movie" v-for="(item, index) in movieList" :key="index">
-    <MovieList :item="item"/>
+  <div class="movie" v-for="(item, index) in movieList" v-bind:key="index">
+    <MovieList v-bind:propsdata = "item"/>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core';
 import {useStore} from 'vuex'
-import {computed} from 'vue'
 import MovieList from '../components/MovieList.vue'
-export default {
-components : {MovieList},
-setup(){
-  const store = useStore();
-  const movieList = computed(() => store.getters.getMovieList)
-  return{
-    movieList
+export default {  
+  components: {
+    MovieList
+  },
+  setup() {
+    const store = useStore();
+    const movieList = computed( () => store.getters.getMovieList )
+    return {  
+      movieList    
+    }
   }
-}
 }
 </script>
 
 <style scoped>
-.movie{
+.movie {
   position: relative;
   display: block;
   width: 49%;
@@ -31,16 +33,13 @@ setup(){
   color: #adaeb9;
   padding: 20px;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-            0 8px 16px -8px rgba(0, 0, 0, 0.3),
-            0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+            0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   cursor: pointer;
 }
-.movie img{
-  width: 100%;
-}
+
 @media screen and (max-width: 1000px) {
-  .movie{
-    width: 95%
-  }
+    .movie {
+      width: 95%;
+    }
 }
 </style>
