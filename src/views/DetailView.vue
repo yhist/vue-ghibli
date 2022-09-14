@@ -41,7 +41,7 @@ import {useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
-  setup() {
+  setup(props, context) {
     const route = useRoute();
     const id = route.params.id;
     // 상세정보 호출
@@ -64,6 +64,7 @@ export default {
     onUpdated(() => {
       show.value = false;
       document.querySelector('html').style.overflowY='auto';
+      context.emit('hide');
     })
 
     return {      
