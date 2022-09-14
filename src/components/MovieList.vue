@@ -72,12 +72,12 @@
     margin-top: 3px;
   }
 
- .a-desc {
+  .a-desc {
     position: relative;
     display: block;
     margin-bottom: 20px;
     font-size: 12px;
     line-height: 1.25;
     color: #333;
- }
+  }
 </style>
